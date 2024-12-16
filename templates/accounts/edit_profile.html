@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div>
+	{% include 'includes/dashboard_sidebar.html' %}
+	<div class="relative top-20 h-screen p-4 sm:ml-64">
+		{% include 'includes/alerts.html' %}
+		<div>
+			<div class="grid gap-8 sm:grid-cols-12">
+				<div class="col-span-12 sm:col-span-4">
+					<div class="bg-white border rounded-lg py-3">
+						<div class="photo-wrapper p-2">
+							<img class="w-32 h-32 rounded-full mx-auto"
+								src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=927&amp;q=80"
+								alt="user">
+						</div>
+						<div class="p-2">
+							<h3 class="text-center text-xl text-gray-900 font-medium leading-8">
+								{{ user.full_name}}
+							</h3>
+							<table class="text-xs my-3">
+								<tbody>
+									<tr>
+										<td class="px-2 py-2 text-gray-500 font-semibold">Address</td>
+										<td class="px-2 py-2">{{ user.address_line_1}}</td>
+									</tr>
+									<tr>
+										<td class="px-2 py-2 text-gray-500 font-semibold">Phone</td>
+										<td class="px-2 py-2">{{ user.phone_number}}</td>
+									</tr>
+									<tr>
+										<td class="px-2 py-2 text-gray-500 font-semibold">Email</td>
+										<td class="px-2 py-2">{{ user.email }}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-span-12 sm:col-span-8">
+					<form action="{% url 'edit_profile' %}" method="POST" class="w-full pb-16"
+						enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="bg-gray-50">
+							<div class="flex items-center justify-between p-4">
+								<div>
+									<p class="text-gray-600">General Information</p>
+								</div>
+								<div class="flex items-center gap-2">
+									<button type="submit" value="Save"
+										class=" bg-orange-500 text-white w-24 p-1.5 rounded-md">Save</button>
+								</div>
+							</div>
+
+							<div class="p-4">
+								<div class="mx-auto max-w-lg space-y-12 py-8">
+									<fieldset class="relative">
+										<legend class="mb-6">
+											<h4 class="font-semibold text-gray-800">Profile Info</h4>
+											<p class="text-sm">Update your profile.</p>
+										</legend>
+										<div class="grid grid-cols-12 gap-4">
+											<div class="col-span-12 sm:col-span-6">
+												<div>
+													<label for="first_name"
+														class="block mb-2 text-sm font-medium text-gray-900 ">
+														First Name
+													</label>
+													{{user_form.first_name}}
+												</div>
+											</div>
+											<div class="col-span-12 sm:col-span-6">
+												<div>
+													<label for="last_name"
+														class="block mb-2 text-sm font-medium text-gray-900">
+														Last Name
+													</label>
+													{{user_form.last_name}}
+												</div>
+											</div>
+											<div class="col-span-12 sm:col-span-6">
+												<div>
+													<label for="phone_number"
+														class="block mb-2 text-sm font-medium text-gray-900 ">
+														Phone Number
+													</label>
+													{{user_form.phone_number}}
+												</div>
+											</div>
+											<div class="col-span-12 sm:col-span-6">
+												<div>
+													<label for="address"
+														class="block mb-2 text-sm font-medium text-gray-900 ">
+														Address
+													</label>
+													{{profile_form.address_line_1}}
+												</div>
+											</div>
+											<div class="col-span-12 sm:col-span-6">
+												<div>
+													<label for="city"
+														class="block mb-2 text-sm font-medium text-gray-900 ">
+														City
+													</label>
+													{{profile_form.city}}
+												</div>
+											</div>
+											<div class="col-span-12 sm:col-span-6">
+												<div>
+													<label for="state"
+														class="block mb-2 text-sm font-medium text-gray-900 ">
+														State
+													</label>
+													{{profile_form.state}}
+												</div>
+											</div>
+											<div class="col-span-12 sm:col-span-6">
+												<div>
+													<label for="country"
+														class="block mb-2 text-sm font-medium text-gray-900 ">
+														Country
+													</label>
+													{{profile_form.country}}
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

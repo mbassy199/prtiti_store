@@ -1,0 +1,43 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=604800" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ASY | Online Shopping Platform</title>
+
+    <link href="" rel="shortcut icon" type="">
+    <link href="{% static 'css/output.css' %}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.17/dist/lenis.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <link href="{% static 'fonts/fontawesome/css/all.min.css' %}" type="text/css" rel="stylesheet">
+
+    <script src="{% static 'js/jquery-2.0.0.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+    <script src="https://unpkg.com/lenis@1.1.17/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AZmlkVfyvqDEkgldLovvYJrGKoLhnlvbwvBX-y12trFQtW-J71OuaiQ186Ul_N5aKw7csFAmeVKK09Wl"></script>
+
+    <script type="text/javascript">
+        const lenis = new Lenis({
+            autoRaf: true,
+        });
+    </script>
+</head>
+
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal !scroll-smooth">
+    {% include 'includes/navbar.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+
+</html>
